@@ -8,8 +8,14 @@ interface restaurantProp {
 }
 
 const Restaurant = (props: restaurantProp) => {
+    const fetchRestaurans = async () => {
+        const response = await fetch('http://localhost:8091/restaurants');
+        const data = await response.json();
+        console.log(data);
+    }
     return (
         <div className='p-4 pl-20'>
+            <button onClick={fetchRestaurans}>Click Me</button>
             <div className='font-semibold text-3xl'>
                 {props.city ? `Best Food in ${props.city}` : 'Best Food in Location'}
             </div>
