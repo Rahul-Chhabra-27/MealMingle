@@ -13,9 +13,15 @@ const Restaurant = (props: restaurantProp) => {
         const data = await response.json();
         console.log(data);
     }
+    const fetchRestaurantItems = async () => {
+        const response = await fetch('http://localhost:8091/restaurant/items/prograd-food-corner');
+        const data = await response.json();
+        console.log(data);
+    }
     return (
         <div className='p-4 pl-20'>
-            <button onClick={fetchRestaurans}>Click Me</button>
+            <button onClick={fetchRestaurantItems}>Fetch Items</button>
+            {/* <button onClick={fetchRestaurans}>Click Me</button> */}
             <div className='font-semibold text-3xl'>
                 {props.city ? `Best Food in ${props.city}` : 'Best Food in Location'}
             </div>
